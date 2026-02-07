@@ -1,0 +1,180 @@
+# Case Study: Discount Strategy in eCommerce – Types, Usage & Restrictions
+
+## 1. Problem Statement
+An eCommerce platform offered multiple discounts (coupon codes, cart discounts, bank offers, seasonal deals), but there was confusion around:
+
+- When each discount type should be applied  
+- Which discounts could be combined  
+- Why certain discounts were not applicable  
+- Customer complaints about “Coupon not valid” messages  
+
+This led to:
+- Poor user experience  
+- Revenue leakage from incorrect stacking  
+- Operational confusion for marketing and support teams  
+
+A structured discount framework was needed.
+
+---
+
+## 2. Objective
+Create a clear discount strategy that:
+
+- Defines types of discounts used in eCommerce  
+- Explains when and where each should be applied  
+- Prevents invalid discount combinations  
+- Protects profit margins  
+- Improves customer clarity and trust  
+
+---
+
+## 3. Discount Types & Usage
+
+| Discount Type        | When Used                     | Where Applied        | Purpose                     |
+|----------------------|------------------------------|----------------------|----------------------------- |
+| Welcome Discount     | New user signup               | First order only     | Acquire new customers       |
+| Coupon Code          | Marketing campaigns           | Checkout page        | Drive conversions           |
+| Cart Value Discount  | Above minimum cart value      | Cart level           | Increase AOV                |
+| Product Discount     | Specific products             | Product page         | Clear inventory             |
+| Seasonal Sale        | Festival / holiday period     | Site-wide            | Boost seasonal revenue      |
+| Bank Offer           | Partner bank promotions       | Payment page         | Bank partnerships           |
+| Wallet Cashback      | Wallet payment method         | After payment        | Encourage wallet usage      |
+| Bundle Discount      | Buy X get Y offers            | Product bundle       | Increase quantity purchased |
+| Flash Sale           | Limited-time campaigns        | Homepage / product   | Create urgency for purchase |
+| Loyalty Discount     | Returning customers           | Account-based        | Improve retention           |
+
+---
+
+## 4. Why Specific Discounts Are Not Applicable
+
+### A. Profit Protection
+Some discounts cannot be combined because:
+- Margin becomes negative  
+- Already heavily discounted items  
+- Vendor-funded vs platform-funded conflict  
+
+**Example:**  
+A product with 40% seasonal discount cannot accept an additional 20% coupon.
+
+---
+
+### B. Campaign Rules
+Each campaign has its own conditions:
+- Minimum cart value required  
+- Applicable categories only  
+- New users only  
+- Payment method restrictions  
+
+**Example:**  
+Bank offer only valid on credit cards, not COD.
+
+---
+
+### C. Technical Stacking Logic
+Discount engine follows priority rules:
+
+1. Product discount applied first  
+2. Cart discount applied next  
+3. Coupon applied last  
+4. Bank offer applied at payment  
+
+If rules conflict → discount blocked.
+
+---
+
+### D. Vendor Funding Restrictions
+Marketplace sellers may:
+- Allow platform coupon  
+- Reject additional discount  
+- Limit discount %  
+
+---
+
+## 5. Implementation Flow
+
+1. User adds product to cart  
+2. System checks product-level discount  
+3. Cart value evaluated  
+4. Coupon entered  
+5. Eligibility validated  
+6. Payment method selected  
+7. Bank/wallet offers applied  
+8. Final price calculated  
+
+If conflict detected → show reason message.
+
+---
+
+## 6. UX Messaging Examples
+
+| Scenario | Message |
+|---------|--------|
+Coupon not valid | “This coupon is not applicable on already discounted items.” |
+Cart value low | “Add ₹500 more to unlock this discount.” |
+Bank offer invalid | “Valid only on HDFC credit cards.” |
+New user only | “This offer is for first-time customers.” |
+
+Clear messaging reduces support tickets.
+
+---
+
+## 7. Test Scenarios (UAT)
+
+| Scenario                     | Action                     | Expected Result                           | Status |
+|------------------------------|----------------------------|-------------------------------------------|--------|
+| Apply coupon on sale item    | Enter coupon code          | Blocked with appropriate message          | Pass   |
+| Cart value below limit       | Apply cart discount        | Discount not applied                      | Pass   |
+| Bank offer + coupon          | Select both at checkout    | Only eligible discount applied            | Pass   |
+| New user coupon reused       | Existing user enters code  | Coupon blocked                            | Pass   |
+| Stack multiple coupons       | Apply two coupon codes     | Only one coupon allowed                   | Pass   |
+
+---
+
+## 8. Metrics & Impact
+
+- ↑ Conversion rate due to clarity  
+- ↓ Customer complaints on coupons  
+- ↑ Average Order Value (AOV)  
+- Better campaign tracking  
+- Controlled discount leakage  
+- Improved profit margins  
+
+---
+
+## 9. Challenges
+
+- Complex stacking rules  
+- Vendor vs platform discount conflicts  
+- Edge cases in cart combinations  
+- Customer expectation of “all discounts together”  
+
+Needed:
+- Strong discount engine logic  
+- Clear UI messaging  
+- Marketing alignment  
+
+---
+
+## 10. Final Outcome
+After implementing a structured discount framework:
+
+- Checkout confusion reduced  
+- Support tickets dropped  
+- Marketing campaigns performed better  
+- Customers understood why discounts were not applicable  
+- Revenue leakage reduced  
+
+The system balanced **customer satisfaction + profitability**.
+
+---
+
+## 11. Key Takeaways
+- Not all discounts should stack  
+- Each discount has a purpose  
+- Clear messaging improves trust  
+- Strong rules prevent revenue loss  
+- Discount strategy = growth + margin control  
+
+---
+
+Thank you
