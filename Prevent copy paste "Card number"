@@ -1,91 +1,105 @@
-## Case Study: Preventing Copy–Paste of Credit Card Data on Checkout for Enhanced Security
+# Case Study: Preventing Copy–Paste of Credit Card Data on Checkout for Enhanced Security
 
-#1. Problem Statement
-
-Customers entering card details on the checkout page often worry about data misuse, accidental copying, or malicious scripts capturing sensitive information.
+## 1. Problem Statement
+Customers entering card details on the checkout page often worry about data misuse, accidental copying, or malicious scripts capturing sensitive information.  
 
 Two key risks were identified:
-Users could paste card numbers into the card field (risk of stolen data being used quickly).
-Users could copy card details after entering them (risk of leakage from shared devices or malware).
+
+- Users could paste card numbers into the card field (risk of stolen data being used quickly).  
+- Users could copy card details after entering them (risk of leakage from shared devices or malware).  
+
 This reduced customer trust and raised compliance concerns during internal security reviews.
 
-#2. Objective
+---
 
+## 2. Objective
 Improve checkout security and customer confidence by:
-Blocking paste actions into the credit card number field.
-Preventing users from copying entered card details from the checkout page.
-Aligning with PCI-DSS secure input handling practices.
-Communicating visible security measures to increase trust and conversion.
 
-#3. Proposed Solution
+- Blocking paste actions into the credit card number field.  
+- Preventing users from copying entered card details from the checkout page.  
+- Aligning with PCI-DSS secure input handling practices.  
+- Communicating visible security measures to increase trust and conversion.  
 
-A front-end and UX-driven security enhancement was implemented:
-A. Input Restrictions
-Disable paste into card number, CVV, and expiry fields.
-Allow only manual typing with numeric validation.
-Mask card number after entry (e.g., **** **** **** 1234).
+---
 
-B. Copy Prevention
-Disable copy/cut actions from sensitive fields.
-Prevent right-click and keyboard shortcuts (Ctrl+C, Ctrl+X).
-Auto-clear clipboard when leaving checkout page (optional browser-supported feature).
+## 3. Proposed Solution
+A front-end and UX-driven security enhancement was implemented.
 
-C. Security Messaging
+### A. Input Restrictions
+- Disable paste into card number, CVV, and expiry fields.  
+- Allow only manual typing with numeric validation.  
+- Mask card number after entry (e.g., **** **** **** 1234).  
 
-Add message below card field:
-“For your safety, copy-paste is disabled on card fields to prevent data misuse.”
-Show security badge and tooltip explaining protection measures.
+### B. Copy Prevention
+- Disable copy/cut actions from sensitive fields.  
+- Prevent right-click and keyboard shortcuts (Ctrl+C, Ctrl+X).  
+- Auto-clear clipboard when leaving checkout page (optional browser-supported feature).  
 
-D. Technical Approach
-JavaScript event listeners to block paste/copy actions.
-Input masking libraries for secure display.
-Server-side validation to ensure no injected values.
-Logging blocked actions for security analytics.
+### C. Security Messaging
+Add message below card field:  
+> “For your safety, copy-paste is disabled on card fields to prevent data misuse.”
 
-#4. Implementation Flow
+- Show security badge and tooltip explaining protection measures.  
 
-User lands on checkout page.
-Card field accepts only manual numeric entry.
-Paste attempt → blocked with tooltip message.
-Copy attempt → blocked silently or with notification.
-Data masked after entry.
-Payment processed via secure tokenization gateway.
+### D. Technical Approach
+- JavaScript event listeners to block paste/copy actions.  
+- Input masking libraries for secure display.  
+- Server-side validation to ensure no injected values.  
+- Logging blocked actions for security analytics.  
 
-#5. Test Scenarios (UAT Focus)
-Scenario	Action	Expected Result	Status
-Paste card number	Ctrl+V into card field	Paste blocked with message	Pass
-Copy card number	Ctrl+C after entry	Copy blocked	Pass
-Right-click copy	Mouse right-click	Copy option disabled	Pass
-Manual entry	Type card number	Accepted and validated	Pass
-Mobile paste	Long press paste	Paste blocked	Pass
-Accessibility check	Screen reader entry	Still usable securely	Pass
+---
 
-#6. Metrics & Impact
+## 4. Implementation Flow
+1. User lands on checkout page.  
+2. Card field accepts only manual numeric entry.  
+3. Paste attempt → blocked with tooltip message.  
+4. Copy attempt → blocked silently or with notification.  
+5. Data masked after entry.  
+6. Payment processed via secure tokenization gateway.  
 
-↓ Fraud risk from copied stolen cards
-↑ Customer trust perception (via UX feedback)
-↑ Checkout completion rate (confidence indicator)
-Improved PCI compliance audit readiness
-Reduced data leakage risk on shared devices
+---
 
-#7. Challenges
+## 5. Test Scenarios (UAT Focus)
 
-Some users rely on password managers → allowed secure autofill exceptions.
-Accessibility considerations required careful handling.
-Needed balance between security and usability.
+| Scenario | Action | Expected Result | Status |
+|---------|--------|----------------|--------|
+| Paste card number | Ctrl+V into card field | Paste blocked with message | Pass |
+| Copy card number | Ctrl+C after entry | Copy blocked | Pass |
+| Right-click copy | Mouse right-click | Copy option disabled | Pass |
+| Manual entry | Type card number | Accepted and validated | Pass |
+| Mobile paste | Long press paste | Paste blocked | Pass |
+| Accessibility check | Screen reader entry | Still usable securely | Pass |
 
-#8. Final Outcome
+---
 
-The enhancement improved perceived and actual checkout security without impacting conversion.
-Customers felt reassured seeing visible protection mechanisms.
+## 6. Metrics & Impact
+- ↓ Fraud risk from copied stolen cards  
+- ↑ Customer trust perception (via UX feedback)  
+- ↑ Checkout completion rate (confidence indicator)  
+- Improved PCI audit readiness  
+- Reduced data leakage risk on shared devices  
+
+---
+
+## 7. Challenges
+- Some users rely on password managers → allowed secure autofill exceptions.  
+- Accessibility considerations required careful handling.  
+- Needed balance between security and usability.  
+
+---
+
+## 8. Final Outcome
+The enhancement improved perceived and actual checkout security without impacting conversion.  
+Customers felt reassured seeing visible protection mechanisms.  
 Internal security and compliance teams approved the solution as a best-practice UX security control.
 
-#9. Key Takeaways
+---
 
-Small UX security controls can significantly improve trust.
-Preventing copy/paste reduces quick fraud attempts.
-Security transparency boosts conversions.
-Always balance security with usability and accessibility.
+## 9. Key Takeaways
+- Small UX security controls can significantly improve trust.  
+- Preventing copy/paste reduces quick fraud attempts.  
+- Security transparency boosts conversions.  
+- Always balance security with usability and accessibility. 
 Ensure if u have full control of card section able to implement as per needs.
 Sometimes it will be control by payment providers in such cases need discussion with them and take decision accordingly.
 
