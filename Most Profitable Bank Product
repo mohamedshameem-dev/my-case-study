@@ -1,0 +1,29 @@
+💳 Why Credit Cards Are Called the Most Profitable Bank Product
+
+| Topic             | Explanation                                                                                    |
+| ----------------- | ---------------------------------------------------------------------------------------------- |
+| Main reason       | Credit cards generate revenue from multiple sources (interest, fees, transaction commissions). |
+| Interest income   | Banks earn interest when customers don’t pay the full bill and carry a balance.                |
+| Fees charged      | Annual fees, late payment fees, over-limit fees, foreign transaction fees, etc.                |
+| Merchant payments | Merchants pay a fee for every credit-card transaction processed.                               |
+| Result            | Multiple revenue streams make credit cards one of the most profitable banking products.        |
+
+🌐 How Visa / Mastercard Make Money
+
+| Revenue Source  | Explanation                                                                                         |
+| --------------- | --------------------------------------------------------------------------------------------------- |
+| Network fees    | Charge issuing and acquiring banks for using their payment network.                                 |
+| Assessment fees | Small percentage charged on every transaction routed through their network.                         |
+| Processing fees | Fixed fee per transaction for authorization and settlement.                                         |
+| Role            | They don’t issue cards or lend money — they run the payment network connecting banks and merchants. |
+
+💰 Credit Card Payment Flow Economics (Example: $100 Purchase)
+
+| Step | Who Involved                        | What Happens                                       | Money Flow                                              |
+| ---- | ----------------------------------- | -------------------------------------------------- | ------------------------------------------------------- |
+| 1    | Cardholder → Merchant               | Customer buys product worth $100 using credit card | Merchant receives payment via card network              |
+| 2    | Merchant                            | Accepts credit card for higher sales               | Pays Merchant Discount Rate (MDR)                       |
+| 3    | Acquiring Bank (Merchant’s bank)    | Processes payment for merchant                     | Keeps small markup fee (example: $0.25)                 |
+| 4    | Issuing Bank (Customer’s card bank) | Provided credit card to customer                   | Earns interchange fee (example: $1.75)                  |
+| 5    | Card Network (Visa/Mastercard)      | Routes transaction between banks                   | Charges network fee (example: ~0.11% + fixed fee)       |
+| 6    | Cardholder → Issuing Bank           | Customer repays bank                               | Bank earns interest/late fees if balance not paid fully |
